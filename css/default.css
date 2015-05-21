@@ -1,0 +1,184 @@
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+body {
+	background:url('../images/big-image.jpg') no-repeat center fixed;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+	text-align: justify;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: small;
+	text-align: justify;
+	color:azure;
+}
+#bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: #FFF;
+    background-size: cover !important;
+}
+
+h1, h2, h3, h4, h5 {
+	margin: 0;
+}
+
+/* Header */
+
+#header {
+	width: 700px;
+	margin: 0 auto;
+	color: #808080;
+}
+
+#header h1 {
+    font-family:'AGA Arabesque';
+	float: left;
+	margin: 0px 0 0 0px;
+	font-size: 50px;
+	letter-spacing: -7px;
+    color:ButtonHighlight;
+}
+
+#header h2 {
+	float: right;
+	margin: 40px 20px 0 0;
+	font-size: 18px;
+	letter-spacing: -2px;
+    color:AppWorkspace;
+}
+
+
+a {
+	color: #666666;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #555E4F;
+	text-decoration: solid;
+}
+
+/* Menu */
+
+#menu1 {
+	float: left;
+	width: 277px;
+	margin: 0px auto;
+	padding-bottom: 20px;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 14px;
+	height: auto;
+}
+
+#menu1 ul {
+	margin: 0px;
+	list-style: none;
+	padding: 1px;
+}
+
+#menu1 li {
+    color:burlywood;
+}
+
+#menu1 a {
+	display: block;
+	width: 278px;
+	padding: 15px 0px;
+	background-color: #D9D9D9;
+	border-top: 1px solid #EDEDED;
+	border-bottom: 1px solid #B5B5B5;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #808080;
+    height: 23px;
+}
+
+#menu1 a:hover {
+	background-color: #8A8A8A;
+	border-top: 1px solid #E3E3E3;
+	border-bottom: 1px solid #E3E3E3;
+	color: #FFFFFF;
+    filter: blur(10px); 
+  -webkit-filter: blur(10px);
+  filter: url('blur.svg#blur');  
+
+}
+
+/* Content */
+
+#content {
+
+
+	margin: 0 auto;
+	padding-top: 10px;
+	border: 10px solid ;
+	border-top: none;
+	border-bottom:none;
+
+    -moz-box-shadow:    3px 3px 5px 6px #323B2E;
+  -webkit-box-shadow: 3px 3px 5px 6px #323B2E;
+  box-shadow:         3px 3px 5px 6px #323B2E;
+
+  
+}
+content_background{
+    padding: 1px;
+  background: rgb(34,34,34);
+  background: rgba(34,34,34,0.75);
+    -webkit-filter: blur(4px);
+  filter: blur(4px);
+}
+
+
+#colTwo {
+	float:left;
+    font-size:large;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	margin-top: 20px;
+	width: 90%;
+	padding: 0 20px 0 20px;
+    height: 534px;
+    top: 0px;
+    left: 0px;
+}
+
+#content h2 {
+ 
+  /*
+ filter: blur(10px); 
+  -webkit-filter: blur(10px);
+  filter: url('blur.svg#blur'); */
+     
+	margin-bottom: 20px;
+	font-size: 40px;
+	letter-spacing: -1px;
+	color: blanchedalmond;;
+}
+
+
+#footer {
+    color:ButtonFace;
+	width: 700px;
+	margin: 0 auto;
+	padding-top: 20px;
+}
+
+
+#footer p {
+	text-align: center;
+	padding: 0;
+	font-size: 10px medium;
+}

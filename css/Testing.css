@@ -1,0 +1,73 @@
+﻿@charset "UTF-8";
+body {
+  text-align: center;
+  background: url("http://farm9.static.flickr.com/8535/8700600857_5ba981d073.jpg") no-repeat;
+  background-size: cover;
+}
+
+.blur_bg {
+  padding: 4em 0;
+  margin-top: 10em;
+  position: relative;
+  background: #000;
+}
+.blur_bg:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("http://farm9.static.flickr.com/8535/8700600857_5ba981d073.jpg") no-repeat;
+  background-size: cover;
+  background-position: 0 -10em;
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
+  opacity: 0.6;
+  padding: 8px;
+  top: -8px;
+  left: -8px;
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  padding: 1em 0 1em 1em;
+  /* Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding.
+  via: http://cssdeck.com/labs/styling-select-box-with-css3 */
+  border: 1px solid #107177;
+  border-radius: 0;
+  position: relative;
+  border-right-width: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select {
+    padding-right: 1em;
+  }
+}
+select:focus {
+  outline: none;
+  border-color: #169ca4;
+}
+
+label {
+  position: relative;
+  display: inline-block;
+}
+label:after {
+  display: block;
+  content: "▾";
+  font-size: 20px;
+  width: 20px;
+  position: absolute;
+  height: 20px;
+  top: 50%;
+  margin-top: -14px;
+  right: 0;
+  color: #fff;
+  pointer-events: none;
+}

@@ -1,0 +1,146 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="UserMasterPage.master.cs" Inherits="UserMasterPage" %>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang=''>
+<head>
+<title>User Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+ <link rel="stylesheet" href="../css/MenuScript.css">
+    <link rel="stylesheet" type="text/css" href="../css/UserMaster.css" /> 
+ <script src="../js/MenuScript.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+ 
+</head>
+<body>
+
+    <div id='cssmenu'>
+<ul>
+   <li><a href="Default.aspx">Home</a></li>
+   <li class='active has-sub'><a href='#'>Private</a>
+      <ul>
+         <li class='has-sub'><a href="ChangPassword.aspx">Change Password</a>
+         </li>
+          <li class='has-sub'><a href="ChangPassword.aspx">Whatever</a>
+         </li>
+        
+      </ul>
+   </li>
+   <li><a href="calender.aspx">Calender</a></li>
+   <li><a href="UserAddingEvent.aspx">Lets Celebrate</a></li>
+    <li><a href="InvitingScale.aspx">Lets Invite</a></li>
+    
+</ul>
+       
+     </div>
+
+    <form id="form1" runat="server">
+        
+        <!-- Begin Left Column -->
+    <div id="leftcolumn" dir="auto">
+        <asp:Label ID="welcome" runat="server" Font-Size="Larger" Font-Strikeout="False" Font-Underline="True" ForeColor="Silver" Text="Label"></asp:Label>
+
+        <hr />
+        <h3>Availble Dates:</h3>
+        <hr />
+        <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" OnDayRender="Calendar1_DayRender" Width="90%">
+            <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+            <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
+            <OtherMonthDayStyle ForeColor="#999999" />
+            <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+            <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
+            <TodayDayStyle BackColor="#CCCCCC" />
+        </asp:Calendar>
+        <hr />
+        <br />
+       <h3>Invitations:</h3> 
+        <hr />
+        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" RepeatLayout="Flow">
+            <AlternatingItemStyle BackColor="#DCDCDC" />
+            <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
+            <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
+            <ItemStyle BackColor="#EEEEEE" ForeColor="Black" />
+
+            <ItemTemplate>
+                <div>
+                 Date:
+                <asp:Label Text='<%# Eval("SendDate") %>' runat="server" ID="SendDateLabel" /><br />
+                Sender:
+                <asp:Label Text='<%# Eval("Sender1") %>' runat="server" ID="Sender1Label" /><br /><br />
+               <asp:Label Text='<%# Eval("content") %>' runat="server" ID="contentLabel" /><br />
+                 <hr />
+
+                </div>
+                <br />
+            </ItemTemplate>
+
+            <SelectedItemStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
+        </asp:DataList>
+
+        <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand="SELECT [SendDate], [Sender1], [content] FROM [Invitations] WHERE ([Receiver] = @Receiver)">
+            <SelectParameters>
+                <asp:SessionParameter SessionField="Name" DefaultValue="a" Name="Receiver" Type="String"></asp:SessionParameter>
+            </SelectParameters>
+        </asp:SqlDataSource>
+    </div> 
+  <!-- End Left Column -->
+<!-- Begin Wrapper -->
+<div id="wrapper">
+  
+  <!-- Begin Right Column -->
+  <div id="rightcolumn"> <div style="height: 109px; width: 654px">
+          <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+
+              <asp:Panel ID="Panel2" runat="server" Height="54px" Width="648px">
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+              </asp:Panel>
+
+        </asp:ContentPlaceHolder>
+          
+          <!--<div style="height: 86px; width: 675px; top: -240px; left: -4px;"; class="fadein">
+    <img src="../images/slide3.jpg">
+    <img src="../images/slide2.jpg">
+    <img src="../images/slide1.jpg">
+
+          </div>-->
+          <br />
+      </div>
+    </div>
+  <!-- End Right Column -->
+ </div><div class="about">
+      <ul>
+          <li>
+<asp:LinkButton ID="log_out" runat="server" Font-Bold="True" PostBackUrl="~/OpinningPage.aspx">Log Out to Main Page</asp:LinkButton>
+    
+          </li>
+          <li>
+ <asp:LinkButton ID="LinkButton1" runat="server" Font-Bold="True" OnClick="log_out_Click">Log Out For Ever</asp:LinkButton>
+          </li>
+
+      </ul>
+        
+        
+    
+<!-- End Wrapper -->
+    </form>
+
+    <!-- End Wrapper 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+$('.fadein img:gt(0)').hide();
+
+setInterval(function () {
+    $('.fadein :first-child').fadeOut()
+                             .next('img')
+                             .fadeIn()
+                             .end()
+                             .appendTo('.fadein');
+}, 4000); // 4 seconds
+});
+</script>-->
+
+</body>
+</html>
